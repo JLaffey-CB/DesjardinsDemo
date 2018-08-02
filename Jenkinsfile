@@ -36,7 +36,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        echo 'Deploying new artifact to Artifactory'
+        checkpoint 'Ready to Deploy'
+        input(message: 'Is the build okay to deploy?', ok: 'Yes')
       }
     }
   }
