@@ -31,6 +31,14 @@ pipeline {
         }
       }
     }
+    stage('Confirm Deploy') {
+      when {
+        branch 'master'
+       steps {
+         echo 'If you are reading this the job was run from master'
+       }
+      }
+    } 
     stage('Deploy') {
       steps {
         echo 'Deploying new artifact to Artifactory'
