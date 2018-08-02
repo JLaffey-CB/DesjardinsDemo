@@ -8,13 +8,31 @@ pipeline {
       }
     }
     stage('Testing') {
-      steps {
-        echo 'Running tests'
+      parallel {
+        stage('Testing') {
+          steps {
+            echo 'Running tests'
+          }
+        }
+        stage('Testing Java7') {
+          steps {
+            echo 'Testing build on Java 7'
+            sleep 20
+            echo 'More testing on Java 7'
+          }
+        }
+        stage('Testing Java8') {
+          steps {
+            echo 'Testing build on Java 8'
+            sleep 20
+            echo 'Running more tests on Java 8'
+          }
+        }
       }
     }
     stage('Deploy') {
       steps {
-        echo 'Deploying artifact to Artifactory'
+        echo 'Deploying new artifact to Artifactory'
       }
     }
   }
