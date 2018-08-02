@@ -11,7 +11,7 @@ pipeline {
       parallel {
         stage('Testing') {
           steps {
-            echo 'Running tests for Java'
+            echo 'Running tests'
             sleep 20
           }
         }
