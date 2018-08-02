@@ -34,7 +34,7 @@ pipeline {
     stage('Deploy') {
       when {
         branch 'master'
-      } 
+      }
       steps {
         echo 'Deploying new artifact to Artifactory'
       }
